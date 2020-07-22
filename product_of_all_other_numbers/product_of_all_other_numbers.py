@@ -4,15 +4,21 @@ Returns: a List of integers
 '''
 # import math
 def product_of_all_other_numbers(arr):
+	# initialize return array
 	rtn_arr = []
+	# loop through indices of array
 	for i in range(len(arr)):
+		# create new array of all numbers
+		# that aren't the current number
 		x = [arr[j] for j in range(len(arr)) if j != i]
+		# get product
 		product = 1
 		for num in x:
 			product *= num
+		# append product to return array
 		rtn_arr.append(product)
 		# rtn_arr.append(math.prod(x))
-
+	# return array
 	return rtn_arr
 
 
