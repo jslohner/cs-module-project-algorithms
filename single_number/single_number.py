@@ -3,24 +3,34 @@ Input: a List of integers where every int except one shows up twice
 Returns: an integer
 '''
 def single_number(arr):
-	# create memory storage
-	mem = {}
-	# loop through array
+	# # my original solution
+	# # create memory storage
+	# mem = {}
+	# # loop through array
+	# for num in arr:
+	# 	# if num is already in
+	# 	# mem add 1 to it's value
+	# 	if num in mem:
+	# 		mem[num] += 1
+	# 	# otherwise initialize number
+	# 	# with value of 1
+	# 	else:
+	# 		mem[num] = 1
+	# # loop through mem
+	# for key in mem:
+	# 	# if key has value of 1
+	# 	# return that key
+	# 	if mem[key] == 1:
+	# 		return key
+
+	# optimized solution
+	s = set()
 	for num in arr:
-		# if num is already in
-		# mem add 1 to it's value
-		if num in mem:
-			mem[num] += 1
-		# otherwise initialize number
-		# with value of 1
+		if num in s:
+			s.remove(num)
 		else:
-			mem[num] = 1
-	# loop through mem
-	for key in mem:
-		# if key has value of 1
-		# return that key
-		if mem[key] == 1:
-			return key
+			s.add(num)
+	return list(s)[0]
 
 if __name__ == '__main__':
 	# Use the main function to test your implementation
